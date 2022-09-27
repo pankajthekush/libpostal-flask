@@ -1,0 +1,24 @@
+version: '2.4'
+
+services:
+    lpostal:
+        image: pkumdev/libpostal-flask
+        init: true
+        logging:
+            driver: json-file
+            options:
+                max-size: 2m
+        build:
+            context: .
+            dockerfile: Dockerfile
+        ports:
+            - 8000
+        command: >
+            /bin/sh -c "gunicorn -w 10 --threads=2 --bind 0.0.0.0:8000 --timeout 600 wsgi:app --preload"
+        networks:
+            - xtnet
+        
+networks:
+    xtnet:
+        external: true
+
