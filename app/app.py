@@ -16,6 +16,6 @@ app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
 # change secrect key
 
-app.config['SECRET_KEY'] = os.environ['SECRECT_KEY']
+app.config['SECRET_KEY'] = '3544fe8c6d3b44ecb82e1f4670ae2e4f'
 
 db = SQLAlchemy(app)
