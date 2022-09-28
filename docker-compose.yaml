@@ -17,7 +17,23 @@ services:
             /bin/sh -c "gunicorn -w 10 --threads=2 --bind 0.0.0.0:8000 --timeout 600 wsgi:app --preload"
         networks:
             - xtnet
-        
+
+    nginx.lpostal:
+        image: nginx:1.22.0
+        volumes:
+          - ./wait-for-it.sh:/wait-for-it.sh
+          - ./libpostal.conf:/etc/nginx/conf.d/default.conf
+        command: >
+              /bin/sh -c "/wait-for-it.sh -t 0 libpostal:8080 -- echo libpostal-rest is up;
+              service nginx start; tail -f /dev/null"
+        ports:
+            - 80
+        environment:
+          - NGINX_HOST=foobar.com
+          - NGINX_PORT=80
+        networks:
+          - xtnet
+
 networks:
     xtnet:
         external: true
