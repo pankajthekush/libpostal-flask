@@ -24,7 +24,7 @@ services:
           - ./wait-for-it.sh:/wait-for-it.sh
           - ./lpostal.conf:/etc/nginx/conf.d/default.conf
         command: >
-              /bin/sh -c "/wait-for-it.sh -t 0 lpostal:8080 -- echo libpostal-rest is up;
+              /bin/sh -c "/wait-for-it.sh -t 0 lpostal:8000 -- echo libpostal-rest is up;
               service nginx start; tail -f /dev/null"
         ports:
             - 80
