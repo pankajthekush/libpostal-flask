@@ -19,8 +19,8 @@ RUN groupadd --gid $USER_GID $USERNAME \
 # * Anything else you want to do like clean up goes here *
 # ********************************************************
 USER $USERNAME
-COPY . /home/postal/libpostal-flask
 WORKDIR /home/postal/libpostal-flask
+COPY . /home/postal/libpostal-flask
 ENV PATH=env/bin:$PATH
 RUN python -m pip install virtualenv && python -m virtualenv env 
 RUN pip install -r requirements.txt
