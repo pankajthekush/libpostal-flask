@@ -18,8 +18,6 @@ RUN groupadd --gid $USER_GID $USERNAME \
 # ********************************************************
 # * Anything else you want to do like clean up goes here *
 # ********************************************************
-RUN pip install awslambdaric
-# [Optional] Set the default user. Omit if you want to keep the default as root.
 USER $USERNAME
 COPY . /home/postal/libpostal-flask
 WORKDIR /home/postal/libpostal-flask
