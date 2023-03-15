@@ -14,6 +14,12 @@ logger.setLevel(logging.DEBUG)
 
 api_postal = Blueprint('api_postal',__name__)
 
+
+@api_postal.route('/isup',methods=['GET'])
+def iparse():
+    return 'api is up'
+
+
 @api_postal.route('/parser',methods=['POST'])
 def iparse():
     json_data = request.get_json()
