@@ -16,7 +16,7 @@ api_postal = Blueprint('api_postal',__name__)
 
 
 @api_postal.route('/isup',methods=['GET'])
-def iparse():
+def isup():
     return 'api is up'
 
 
