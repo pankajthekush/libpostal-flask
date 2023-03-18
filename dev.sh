@@ -1,0 +1,1 @@
+docker run -it -v "$(pwd)":/home/libpostal-flask -p 6404:6404 pkumdev/libpostal bash
